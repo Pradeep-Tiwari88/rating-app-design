@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Interactive rating component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500&display=swap');
+    *
+    {
+      padding: 0px ;
+      margin: 0px;
+      box-sizing: border-box;
+      font-family: 'Nunito', sans-serif;
+    }
+    body
+    {
+      background: black;
+    }
+    
+    .main_page
+    {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content:center;
+
+    }
+    .work_sheet
+    {
+      width: 430px;
+      height: 400px;
+      border-radius: 35px;
+      background: rgb(40, 40, 40);
+      padding: 30px;
+      display: block;
+    }
+    .img_work
+    {
+      width:35px ;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100%;
+      background: rgb(55, 55, 55);
+    }
+    h2
+    {
+      font-family: 'Nunito', sans-serif;
+      font-size: 20px;
+      color: white;
+      margin: 20px 0;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .main_sheet2nd
+    {
+    }
+
+    .main_sheet2nd p
+    {
+      padding: 20px 0;
+      color: white;
+    }
+
+
+    .number
+    {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    
+
+    .number  button
+    {
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+      background: rgb(50, 50, 50);
+      cursor: pointer;
+      color: white;
+      font-size: 22px;
+    }
+
+    .colorAdd
+    {
+      background: white;
+      color: black;
+    }
+    
+    .submit
+    {
+      margin: 20px 0;
+    }
+    .submit
+    {
+      width: 380px;
+      height: 50px;
+      text-align: center;
+      color: white;
+      font-size: 20px;
+      background:rgb(255, 99, 71) ;
+      border-radius: 35px; 
+      border: none;
+    }
+    @media (max-width:420px)
+    {
+      .work_sheet
+      {
+      width: 100%;
+      height: auto;
+      border-radius: 35px;
+      background: rgb(40, 40, 40);
+      padding: 30px;
+      display: block;
+      }
+      .submit
+    {
+      width: 100%0;
+      height: 50px;
+      text-align: center;
+      color: white;
+      font-size: 20px;
+      background:rgb(255, 99, 71) ;
+      border-radius: 35px; 
+      border: none;
+    }
+    }
+
+
+
+
+    /*  Thank You Card  */
+
+    .thankYou-card
+    {
+      width: 430px;
+      height: 400px;
+      background: rgb(40, 40, 40);
+      border-radius: 35px;
+      padding: 30px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      display: none;
+    }
+    
+    .ratingPara 
+    {
+      background: rgb(60, 60, 60);
+      color:rgb(255,99, 71);
+      padding: 4px 8px;
+      border-radius: 35px;
+      font-size: 14px;
+    }
+
+
+    .p
+    {
+      text-align: center;
+      font-size: 16px;
+    }
+
+
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  
+
+  
+  <div class="main_page">
+    <div class="work_sheet">
+      <div class="img_work">
+        <img src="images/icon-star.svg">
+
+      </div>
+       <div class="main_sheet2nd"> 
+          <h2>How did do you ?</h2>
+          <p>Plese let us know how we did with your supports request.All feedback is apprectaited to help us improve our offering!</p>
+      <div class="number">
+
+      <button class="btn-rating">1</button>
+      <button class="btn-rating">2</button>
+      <button class="btn-rating">3</button>
+      <button class="btn-rating">4</button>
+      <button class="btn-rating">5</button>
+        
+        
+      </div>
+
+        <button class="submit" onclick="submit()">Submit</button>
+      </div>
+
+
+      
+    </div>
+
+
+    <div class="thankYou-card">
+      <div class="thankYou-img">
+        <img src="images/illustration-thank-you.svg">
+      </div>
+
+
+      <p class="ratingPara">You selected <span class="rating-number"></span> out of 5</p>
+      <h1>Thanku you!</h1>
+      <p class="p">We appreciate you taking the time to give a rating. If you ever need more support, dod't hessitate to get in touch!</p>
+      
+    </div>
+
+  </div>
+
+
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Pradeep</a>.
+  </div>
+
+
+  <!-- =========================2nd card====================== -->
+
+
+<!-- ------------ Javascript Start -------------- -->
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  
+  let button = document.querySelectorAll('.btn-rating')
+  let output = document.querySelector('.rating-number')
+
+  for (i = 0; i<button.length; i++) 
+  {
+    button[i].value = (i+1);
+    button[i].addEventListener('click', function()
+    {
+      let value = this.value;
+      button.forEach(function(elem, ind){
+        if (ind < value) 
+        {
+          elem.classList.add("colorAdd")
+        }
+
+        else
+        {
+          elem.classList.remove("colorAdd")
+        }
+
+        if (value > 1) 
+        {
+          output.textContent = value;
+        }
+
+      })
+    })
+  }
+
+
+function submit() 
+{
+  document.querySelector('.work_sheet').style.display = "none";
+  document.querySelector('.thankYou-card').style.display = "flex"
+}
+
+</script>
+
+</body>
+</html>
